@@ -117,4 +117,6 @@ atlassian*
 !/vendor/.htaccess
 /generated/*
 !/generated/.htaccess
+/dev/*
+/setup/*
 .DS_Store
