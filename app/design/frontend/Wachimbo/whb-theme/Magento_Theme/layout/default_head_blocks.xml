@@ -13,6 +13,8 @@
         <font src="fonts/opensans/semibold/opensans-600.woff2"/>
         <font src="fonts/opensans/bold/opensans-700.woff2"/>
         <font src="fonts/Luma-Icons.woff2"/>
+        <css src="css/owl.carousel.min.css" rel="stylesheet" type="text/css"  />
+        <css src="css/owl.theme.default.min.css" rel="stylesheet" type="text/css"  />
         <css src="css/custom.css" />
     </head>
 </page>

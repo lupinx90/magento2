@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="content">
+            <block class="Magento\Framework\View\Element\Template"  name="images.slider" template="Magento_Theme::home-images-slider.phtml" />
+            <block class="Wachimbo\Banners\Block\Products"  name="featured.products.slider" template="Wachimbo_Banners::home-featured-products.phtml" />
+        </referenceBlock>
+    </body>
+</page>
