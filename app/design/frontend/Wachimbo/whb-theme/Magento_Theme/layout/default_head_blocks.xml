@@ -16,5 +16,6 @@
         <css src="css/owl.carousel.min.css" rel="stylesheet" type="text/css"  />
         <css src="css/owl.theme.default.min.css" rel="stylesheet" type="text/css"  />
         <css src="css/custom.css" />
+        <css src="css/bootstrap.min.css" />
     </head>
 </page>

@@ -9,6 +9,15 @@ var config = {
     shim: {
         'owlcarousel': {
             deps: ['jquery']
+        },
+        bootstrap: {
+            deps: ['jquery', '@popperjs/core']
+        }
+    },
+    map: {
+        '*': {
+            bootstrap: 'js/bootstrap.min',
+            '@popperjs/core': 'js/popper.min'
         }
     }
 };
