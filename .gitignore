@@ -118,5 +118,6 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 /dev/*
+/lib/*
 /setup/*
 .DS_Store
