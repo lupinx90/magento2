@@ -1,5 +1,5 @@
 var config = {
-    "deps": [
+    deps: [
         "js/owl.home.images",
         "js/owl.home.products"
     ],
@@ -18,6 +18,13 @@ var config = {
         '*': {
             bootstrap: 'js/bootstrap.min',
             '@popperjs/core': 'js/popper.min'
+        }
+    },
+    config: {
+        mixins: {
+            'mage/validation/validation': {
+                'js/custom.validators': true
+            }
         }
     }
 };

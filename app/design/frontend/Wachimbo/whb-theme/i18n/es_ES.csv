@@ -1,3 +1,15 @@
 "Default welcome msg!","¡Bienvenidos!",module,Magento_Customer
 "If you have an account, sign in with your email address.","Si tienes una cuenta, logueate con tu dirección de email.",module,Magento_Customer
 "Search entire store here...","Buscar en la tienda...",module,Magento_Search
+"Only alphabetic characters and whitespaces allowed","Solo se aceptan caracteres alfabéticos y espacios",module,Wachimbo_Checkout
+"Only alphabetic characters and whitespaces allowed","Solo se aceptan caracteres alfabéticos y espacios",theme,whb-theme
+"Only alphanumeric characters, whitespaces and ampersand allowed","Solo se aceptan caracteres alfanuméricos, espacios y '&'",module,Wachimbo_Checkout
+"Only alphanumeric characters, whitespaces and ampersand allowed","Solo se aceptan caracteres alfanuméricos, espacios y '&'",theme,whb-theme
+"Only alphanumeric characters, whitespaces and punctuation signs allowed","Solo se aceptan caracteres alfanuméricos, espacios y signos de puntuación",module,Wachimbo_Checkout
+"Only alphanumeric characters, whitespaces and punctuation signs allowed","Solo se aceptan caracteres alfanuméricos, espacios y signos de puntuación",theme,whb-theme
+"Please enter a valid zip code (Ex: 18110).","Por favor, introduce un código postal válido (Ej. 18110)",module,Wachimbo_Checkout
+"Please enter a valid zip code (Ex: 18110).","Por favor, introduce un código postal válido (Ej. 18110)",theme,whb-theme
+"Please enter a valid phone number (Ex: 000000000).","Por favor, introduce un número de teléfono válido (Ej. 000000000)",module,Wachimbo_Checkout
+"Please enter a valid phone number (Ex: 000000000).","Por favor, introduce un número de teléfono válido (Ej. 000000000)",theme,whb-theme
+"NIF/NIE not valid","El NIF/NIE introducido no es válido",module,Wachimbo_Checkout
+"NIF/NIE not valid","El NIF/NIE introducido no es válido",theme,whb-theme
