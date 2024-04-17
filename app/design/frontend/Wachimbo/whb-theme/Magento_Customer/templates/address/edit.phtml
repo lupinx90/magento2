@@ -30,13 +30,13 @@ $regionProvider = $block->getRegionProvider();
 <?php $_streetValidationClassNotRequired = $_streetValidationClass !== null ?
     trim(str_replace('required-entry', '', $_streetValidationClass)) : ''; ?>
 <?php $_regionValidationClass = $viewModel->addressGetAttributeValidationClass('region'); ?>
-<form class="form-address-edit"
+<form class="form-address-edit col-xs-12 border border-1 rounded border-secondary bg-secondary-subtle p-4 my-5"
       action="<?= $escaper->escapeUrl($block->getSaveUrl()) ?>"
       method="post"
       id="form-validate"
       enctype="multipart/form-data"
       data-hasrequired="<?= $escaper->escapeHtmlAttr(__('* Required Fields')) ?>">
-    <fieldset class="fieldset">
+    <fieldset class="fieldset p-4">
         <legend class="legend"><span><?= $escaper->escapeHtml(__('Contact Information')) ?></span></legend><br>
         <?= $block->getBlockHtml('formkey') ?>
         <input type="hidden" name="success_url" value="<?= $escaper->escapeUrl($block->getSuccessUrl()) ?>">
@@ -55,8 +55,24 @@ $regionProvider = $block->getRegionProvider();
             <?= $_fax->setFax($block->getAddress()->getFax())->toHtml() ?>
         <?php endif ?>
 
+        <?php if ($viewModel->addressIsVatAttributeVisible()): ?>
+            <div class="field taxvat">
+                <label class="label" for="vat_id">
+                    <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('vat_id') ?></span>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           name="vat_id"
+                           value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getVatId()) ?>"
+                           title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('vat_id') ?>"
+                           class="input-text validate-nif <?= $escaper->escapeHtmlAttr($_vatidValidationClass) ?>"
+                           id="vat_id">
+                </div>
+            </div>
+        <?php endif; ?>
+
     </fieldset>
-    <fieldset class="fieldset">
+    <fieldset class="fieldset p-4">
         <legend class="legend"><span><?= $escaper->escapeHtml(__('Address')) ?></span></legend><br>
         <div class="field street required">
             <label for="street_1" class="label"><span><?= /* @noEscape */ $_street ?></span></label>
@@ -96,21 +112,6 @@ $regionProvider = $block->getRegionProvider();
             </div>
         </div>
 
-        <?php if ($viewModel->addressIsVatAttributeVisible()): ?>
-            <div class="field taxvat">
-                <label class="label" for="vat_id">
-                    <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('vat_id') ?></span>
-                </label>
-                <div class="control">
-                    <input type="text"
-                           name="vat_id"
-                           value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getVatId()) ?>"
-                           title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('vat_id') ?>"
-                           class="input-text validate-nif <?= $escaper->escapeHtmlAttr($_vatidValidationClass) ?>"
-                           id="vat_id">
-                </div>
-            </div>
-        <?php endif; ?>
         <div class="field country required">
             <label class="label" for="country">
                 <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('country_id') ?></span>
@@ -167,7 +168,7 @@ $regionProvider = $block->getRegionProvider();
                        class="input-text validate-zipES
                         <?= $escaper->escapeHtmlAttr($_postcodeValidationClass) ?>"
                         data-validation="{'validate-zipES':true}"/>
-                <div role="alert" class="message warning">
+                <div role="alert" class="message warning rounded">
                     <span></span>
                 </div>
                 <?= /* @noEscape */ $secureRenderer->renderStyleAsTag("display: none;", 'div.message.warning') ?>
@@ -175,7 +176,7 @@ $regionProvider = $block->getRegionProvider();
         </div>
 
         <?php if ($block->isDefaultBilling()): ?>
-            <div class="message info">
+            <div class="message info rounded">
                 <span><?= $escaper->escapeHtml(__("It's a default billing address.")) ?></span>
             </div>
         <?php elseif ($block->canSetAsDefaultBilling()): ?>
@@ -190,7 +191,7 @@ $regionProvider = $block->getRegionProvider();
         <?php endif; ?>
 
         <?php if ($block->isDefaultShipping()): ?>
-            <div class="message info">
+            <div class="message info rounded">
                 <span><?= $escaper->escapeHtml(__("It's a default shipping address.")) ?></span>
             </div>
         <?php elseif ($block->canSetAsDefaultShipping()): ?>
@@ -204,10 +205,10 @@ $regionProvider = $block->getRegionProvider();
             <input type="hidden" name="default_shipping" value="1">
         <?php endif; ?>
     </fieldset>
-    <div class="actions-toolbar">
+    <div class="actions-toolbar d-flex justify-content-center">
         <div class="primary">
             <button type="submit"
-                    class="action save primary"
+                    class="action save primary m-0 rounded"
                     data-action="save-address"
                     disabled="disabled"
                     title="<?= $escaper->escapeHtmlAttr(__('Save Address')) ?>">

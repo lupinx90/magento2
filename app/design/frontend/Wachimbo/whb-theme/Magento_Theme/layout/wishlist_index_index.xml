@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer.wishlist.item.inner" remove="true"/>
+        <referenceBlock name="customer.wishlist.item.edit" remove="true"/>
+        <referenceBlock name="customer.wishlist.items">
+            <block class="Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Cart" name="customer.wishlist.item.cart" template="Magento_Wishlist::item/column/cart.phtml" cacheable="false">
+                <arguments>
+                    <argument name="allowedQuantityViewModel" xsi:type="object">Magento\Wishlist\ViewModel\AllowedQuantity</argument>
+                    <argument name="title" translate="true" xsi:type="string">Add to Cart</argument>
+                </arguments>
+            </block>
+
+            <block class="Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Actions" name="customer.wishlist.item.actions" template="Magento_Wishlist::item/column/actions.phtml" cacheable="false">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">product-item-actions</argument>
+                </arguments>
+                <block class="Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Remove" name="customer.wishlist.item.remove" template="Magento_Wishlist::item/column/remove.phtml" cacheable="false"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

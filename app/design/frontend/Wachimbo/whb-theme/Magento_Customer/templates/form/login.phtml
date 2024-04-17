@@ -10,7 +10,7 @@
 /** @var \Magento\Customer\ViewModel\LoginButton $loginButtonViewModel */
 $loginButtonViewModel = $block->getData('login_button_view_model');
 ?>
-<div class="block block-customer-login">
+<div class="block block-customer-login col-xs-12 col-md-8 p-5 m-0 text-center">
     <div class="block-title">
         <strong id="block-customer-login-heading" role="heading" aria-level="2"><?= $block->escapeHtml(__('Registered Customers')) ?></strong>
     </div>
@@ -25,7 +25,7 @@ $loginButtonViewModel = $block->getData('login_button_view_model');
                 <div class="field note"><?= $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?></div>
                 <div class="field email required">
                     <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
-                    <div class="control">
+                    <div class="control mx-auto">
                         <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>"
                             <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?>
                                id="email" type="email" class="input-text validate-email"
@@ -36,7 +36,7 @@ $loginButtonViewModel = $block->getData('login_button_view_model');
                 </div>
                 <div class="field password required">
                     <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
-                    <div class="control">
+                    <div class="control mx-auto">
                         <input name="login[password]" type="password"
                             <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?>
                                class="input-text validate-customer-password" id="pass"
@@ -49,8 +49,8 @@ $loginButtonViewModel = $block->getData('login_button_view_model');
                     <!-- ko template: getTemplate() --><!-- /ko -->
                 </div>
                 <?= $block->getChildHtml('form_additional_info') ?>
-                <div class="actions-toolbar">
-                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2" <?php if ($loginButtonViewModel->disabled()): ?> disabled="disabled" <?php endif; ?>><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
+                <div class="actions-toolbar row">
+                    <div class="primary d-flex align-items-center"><button type="submit" class="action login primary rounded mx-auto" name="send" id="send2" <?php if ($loginButtonViewModel->disabled()): ?> disabled="disabled" <?php endif; ?>><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
                     <div class="secondary"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div>
                 </div>
             </fieldset>

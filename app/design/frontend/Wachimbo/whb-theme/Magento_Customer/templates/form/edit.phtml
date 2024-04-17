@@ -9,7 +9,7 @@ use Magento\Customer\Block\Widget\Name;
 /** @var \Magento\Customer\Block\Form\Edit $block */
 /** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
 ?>
-<form class="form form-edit-account"
+<form class="form form-edit-account col-xs-12 border border-1 rounded border-secondary bg-secondary-subtle p-4 my-5"
       action="<?= $block->escapeUrl($block->getUrl('customer/account/editPost')) ?>"
       method="post" id="form-validate"
       enctype="multipart/form-data"
@@ -32,14 +32,14 @@ use Magento\Customer\Block\Widget\Name;
         <?php if ($_gender->isEnabled()): ?>
             <?= $_gender->setGender($block->getCustomer()->getGender())->toHtml() ?>
         <?php endif ?>
-        <div class="field choice">
+        <div class="field choice mx-4">
             <input type="checkbox" name="change_email" id="change-email" data-role="change-email" value="1"
                    title="<?= $block->escapeHtmlAttr(__('Change Email')) ?>" class="checkbox" />
             <label class="label" for="change-email">
                 <span><?= $block->escapeHtml(__('Change Email')) ?></span>
             </label>
         </div>
-        <div class="field choice">
+        <div class="field choice mx-4">
             <input type="checkbox" name="change_password" id="change-password" data-role="change-password" value="1"
                    title="<?= $block->escapeHtmlAttr(__('Change Password')) ?>"
                 <?php if ($block->getChangePassword()): ?> checked="checked"<?php endif; ?> class="checkbox" />
@@ -104,7 +104,7 @@ use Magento\Customer\Block\Widget\Name;
                     autocomplete="off" />
             </div>
         </div>
-        <div class="field choice" data-bind="scope: 'showPassword'">
+        <div class="field choice mx-4" data-bind="scope: 'showPassword'">
             <!-- ko template: getTemplate() --><!-- /ko -->
         </div>
     </fieldset>
@@ -113,9 +113,9 @@ use Magento\Customer\Block\Widget\Name;
         <?= $block->getChildHtml('form_additional_info') ?>
     </fieldset>
 
-    <div class="actions-toolbar">
+    <div class="actions-toolbar d-flex justify-content-center">
         <div class="primary">
-            <button type="submit" class="action save primary" title="<?= $block->escapeHtmlAttr(__('Save')) ?>">
+            <button type="submit" class="action save primary m-0 rounded" title="<?= $block->escapeHtmlAttr(__('Save')) ?>">
                 <span><?= $block->escapeHtml(__('Save')) ?></span>
             </button>
         </div>

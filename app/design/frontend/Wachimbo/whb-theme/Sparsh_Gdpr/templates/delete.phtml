@@ -1,0 +1,146 @@
+<div class="block block-dashboard-deleteaccount col-xs-12 col-md-6 float-start border border-1 rounded border-secondary bg-secondary-subtle p-4 my-5">
+    <div class="block-title"><strong><?= $escaper->escapeHtml(__('Delete Account')) ?></strong></div>
+    <?php
+    $viewModel = $block->getData('view_model_delete');
+    $customerData = $viewModel->getCustomerDeleteData();
+    $orderStatusData = $viewModel->getCustomerOrderStatusData();
+    ?>
+    <h4><b><?= $escaper->escapeHtml(__('Following information will be deleted:')) ?></b></h4>
+    <ul>
+        <?php
+        foreach ($customerData as $deleteElement) {
+            if ($deleteElement == "newsletter") {
+                ?>
+                <li><?= $escaper->escapeHtml(__('Newsletter')) ?></li>
+                <?php
+            } elseif ($deleteElement == "order") {
+                ?>
+                <li><?= $escaper->escapeHtml(__('Order')) ?></li>
+                <li><?= $escaper->escapeHtml(__('Invoice')) ?></li>
+                <li><?= $escaper->escapeHtml(__('Shipment')) ?></li>
+                <li><?= $escaper->escapeHtml(__('Credit Memo')) ?></li>
+                <?php
+            } elseif ($deleteElement == "") {
+                ?>
+                <li><?= $escaper->escapeHtml(__('Delete account profile')) ?></li>
+                <?php
+            }
+        }
+        if (empty($customerData)) {
+            ?>
+            <li><?= $escaper->escapeHtml(__('Delete account profile')) ?></li>
+            <?php
+        }
+        ?>
+    </ul>
+
+    <div>
+        <button type="button" class="sparsh-confirm-delete-account" title="submit">
+            <?= $escaper->escapeHtml(__('Confirm')) ?>
+        </button>
+    </div>
+</div>
+<div id="sparsh-popup-modal-delete-account" style="display:none;">
+    <div id="result-message" class="message-validation message" style="display: none"></div>
+    <form class="form" action="<?= $escaper->escapeHtml($block->getUrl('gdpr/customer/deleteMail')); ?>" method="post"
+          id="form-validate-delete-account" enctype="multipart/form-data" autocomplete="off"
+          data-mage-init='{"validation":{}}'
+          data-hasrequired="<?= /* @noEscape */
+          __('* Required Fields') ?>">
+        <fieldset class="fieldset">
+            <div class="field sparsh-account-warning">
+                <label class="label"><span><?= $escaper->escapeHtml($viewModel->getWarningMessage()) ?></span></label>
+            </div>
+            <div class="field current required sparsh-password">
+                <label class="label"
+                       for="current-password"><span><?= $escaper->escapeHtml(__('Current Password')) ?></span></label>
+                <div class="control">
+                    <input type="password" class="input-text" name="current_password_delete_account"
+                           id="current-password"
+                           data-input="current-password" autocomplete="off" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field customer_reason required">
+                <label class="label"
+                       for="customer_reason"><span><?= /* @noEscape */
+                        __('Reason for delete account') ?></span></label>
+                <div class="control">
+                    <textarea name="customer_reason" class="reason input-text" title="<?= /* @noEscape */
+                    __('Description') ?>"
+                              cols="30"
+                              rows="10" data-validate="{required:true}"></textarea>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'mage/validation'
+        ],
+        function (
+            $,
+            modal
+        ) {
+            $('#form-validate-delete-account').submit(function (e) {
+                e.preventDefault();
+                $('.deleteaccount-submit').click();
+            });
+
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: jQuery.mage.__('Delete Account'),
+                buttons: [{
+                    text: jQuery.mage.__('submit'),
+                    class: 'deleteaccount-submit',
+                    click: function (data) {
+                        if (jQuery('#form-validate-delete-account').valid()) {
+                            var form_data = jQuery("#form-validate-delete-account").serialize();
+                            jQuery.ajax({
+                                url: "<?= $block->escapeUrl($block->getBaseUrl()) . 'gdpr/customer/deleteMail';?>",
+                                type: 'POST',
+                                data: form_data,
+                                showLoader: true,
+                                success: function (data) {
+                                    if (data.status) {
+                                        jQuery('#result-message').html('<div>' + data.message + '</div>');
+                                        jQuery('#result-message').removeClass('error').removeClass('message-error');
+                                        jQuery('#result-message').addClass('success').addClass('message-success');
+                                        jQuery('#result-message').show();
+                                        setTimeout(function () {
+                                            jQuery("#sparsh-popup-modal-delete-account").modal("closeModal");
+                                        }, 3000);
+                                    } else {
+                                        jQuery('#result-message').html('<div>' + data.message + '</div>');
+                                        jQuery('#result-message').removeClass('success').removeClass('message-success');
+                                        jQuery('#result-message').addClass('error').addClass('message-error');
+                                        jQuery('#result-message').show();
+                                    }
+                                },
+                                error: function (result) {
+                                    msg = '<?= $escaper->escapeHtml(__("Something went wrong. Please try again later.")) ?>';
+                                    jQuery('#result-message').html('<div>' + msg + '</div>');
+                                    jQuery('#result-message').removeClass('success').removeClass('message-success');
+                                    jQuery('#result-message').addClass('error').addClass('message-error');
+                                    jQuery('#result-message').show();
+                                }
+                            });
+                        }
+
+                    }
+                }]
+            };
+
+            var popup = modal(options, jQuery('#sparsh-popup-modal-delete-account'));
+            jQuery(".sparsh-confirm-delete-account").on('click', function () {
+                jQuery("#sparsh-popup-modal-delete-account").modal("openModal");
+            });
+
+        }
+    );
+</script>

@@ -47,7 +47,7 @@ define([
                 var numero, letr, letra;
                 var expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
     
-                dni = v.toUpperCase();
+                var dni = v.toUpperCase();
     
                 if(expresion_regular_dni.test(dni) === true){
                     numero = dni.substr(0,dni.length-1);

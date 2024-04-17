@@ -13,3 +13,18 @@
 "Please enter a valid phone number (Ex: 000000000).","Por favor, introduce un número de teléfono válido (Ej. 000000000)",theme,whb-theme
 "NIF/NIE not valid","El NIF/NIE introducido no es válido",module,Wachimbo_Checkout
 "NIF/NIE not valid","El NIF/NIE introducido no es válido",theme,whb-theme
+"Allow remote shopping assistance","Permitir asistencia en remoto de mi cuenta",module,Magento_LoginAsCustomerAssistance
+"This allows merchants to 'see what you see' and take actions on your behalf in order to provide better assistance.","Esta opción permite a nuestro equipo ver tu cuenta y tomar acciones con tu consentimiento para ofrecerte el mejor soporte posible.",module,Magento_LoginAsCustomerAssistance
+"Create New Customer Account","Crear nueva cuenta cliente",module,Magento_Customer
+"Show Password","Mostrar Contraseña",module,Magento_Customer
+"I read and agree <a href="/privacy-policy-cookie-restriction-mode">Privacy Policy</a>","He leído y acepto la <a href="/privacy-policy-cookie-restriction-mode">política de privacidad</a>",module,Sparsh_Gdpr
+"Customer Login","Acceso a Mi Cuenta",module,Magento_Customer
+"My Account","Mi Cuenta",module,Magento_Customer
+"The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.","Login incorrecto o cuenta deshabilitada temporalmente",module,Magento_Customer
+"Following information will be deleted:","Los siguientes datos serán borrados:",module,Sparsh_Gdpr
+"Delete Account","Borrar Cuenta",module,Sparsh_Gdpr
+"Anonymous Account","Cuenta anónima",module,Sparsh_Gdpr
+"Anonymising your acccount will replace your personal data with non-personal information. You will receive new login and password to your email address to be used from now onwards.","Anonimizar tu cuenta reemplazará tus datos con información desvinculada a ti. Recibirás un nuevo login y contraseña a tu dirección email para que utilices de ahora en adelante.",module,Sparsh_Gdpr
+"submit","Enviar",module,Sparsh_Gdpr
+"Reason for delete account","Motivo por el que eliminas tu cuenta",module,Sparsh_Gdpr
+"VAT Number","NIF",module,Magento_Customer

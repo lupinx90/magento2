@@ -24,14 +24,14 @@ $createAccountButtonViewModel = $block->getData('create_account_button_view_mode
 <?= $block->getChildHtml('form_fields_before') ?>
 <?php /* Extensions placeholder */ ?>
 <?= $block->getChildHtml('customer.form.register.extra') ?>
-<form class="form create account form-create-account"
+<form class="form create account form-create-account row col-md-12 border border-1 border-primary bg-primary-subtle rounded my-5 text-center"
       action="<?= $escaper->escapeUrl($block->getPostActionUrl()) ?>"
       method="post"
       id="form-validate"
       enctype="multipart/form-data"
       autocomplete="off">
     <?= /* @noEscape */ $block->getBlockHtml('formkey') ?>
-    <fieldset class="fieldset create info">
+    <fieldset class="fieldset create info col-xs-12 col-md-6 p-5 m-0">
         <legend class="legend"><span><?= $escaper->escapeHtml(__('Personal Information')) ?></span></legend><br>
         <input type="hidden" name="success_url" value="<?= $escaper->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $escaper->escapeUrl($block->getErrorUrl()) ?>">
@@ -41,7 +41,7 @@ $createAccountButtonViewModel = $block->getData('create_account_button_view_mode
                 ->setForceUseCustomerAttributes(true)
                 ->toHtml() ?>
         <?php if ($block->isNewsletterEnabled()): ?>
-            <div class="field choice newsletter">
+            <div class="field choice newsletter text-start mx-4">
                 <input type="checkbox"
                        name="is_subscribed"
                        title="<?= $escaper->escapeHtmlAttr(__('Sign Up for Newsletter')) ?>"
@@ -227,7 +227,7 @@ $createAccountButtonViewModel = $block->getData('create_account_button_view_mode
         </fieldset>
 
     <?php endif; ?>
-    <fieldset class="fieldset create account"
+    <fieldset class="fieldset create account col-xs-12 col-md-6 p-5 m-0"
               data-hasrequired="<?= $escaper->escapeHtmlAttr(__('* Required Fields')) ?>">
         <legend class="legend"><span><?= $escaper->escapeHtml(__('Sign-in Information')) ?></span></legend><br>
         <div class="field required">
@@ -287,25 +287,19 @@ $createAccountButtonViewModel = $block->getData('create_account_button_view_mode
         </div>
     </fieldset>
 
-    <fieldset class="fieldset additional_info">
+    <fieldset class="fieldset additional_info my-4">
         <?= $block->getChildHtml('form_additional_info') ?>
     </fieldset>
 
-    <div class="actions-toolbar">
+    <div class="actions-toolbard-flex justify-content-center my-4">
         <div class="primary">
             <button type="submit"
-                    class="action submit primary"
+                    class="action submit primary m-0 rounded"
                     title="<?= $escaper->escapeHtmlAttr(__('Create an Account')) ?>"
                     id="send2"
                     <?php if ($createAccountButtonViewModel->disabled()): ?> disabled="disabled" <?php endif; ?>>
                 <span><?= $escaper->escapeHtml(__('Create an Account')) ?></span>
             </button>
-        </div>
-        <div class="secondary">
-            <a class="action back"
-               href="<?= $escaper->escapeUrl($block->getBackUrl()) ?>">
-                <span><?= $escaper->escapeHtml(__('Back')) ?></span>
-            </a>
         </div>
     </div>
 </form>
