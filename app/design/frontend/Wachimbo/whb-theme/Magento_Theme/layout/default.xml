@@ -10,5 +10,9 @@
         <referenceBlock name="upsell.product.addto.compare" remove="true" />
         <referenceBlock name="view.addto.compare" remove="true" />
         <referenceBlock name="sale.reorder.sidebar" remove="true" />
+        <move element="store_language" destination="header-wrapper" before="logo" />
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="toggleNav" before="-" template="Magento_Theme::html/header/toggleNav.phtml"/>
+        </referenceContainer>
     </body>
 </page>
