@@ -22,7 +22,7 @@ var config = {
     },
     config: {
         mixins: {
-            'mage/validation/validation': {
+            'mage/validation': {
                 'js/custom.validators': true
             }
         }

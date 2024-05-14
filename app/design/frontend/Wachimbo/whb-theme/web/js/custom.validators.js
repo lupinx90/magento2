@@ -59,12 +59,12 @@ define([
                     letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
                     letra = letra.substring(numero, numero+1);
                     if (letra != letr) {
-                        return false;
+                        return $.mage.isEmptyNoTrim(v) || false;
                     }else{
                         return true;
                     }
                 }else{
-                    return false;
+                    return $.mage.isEmptyNoTrim(v) || false;
                 }
             },
             $.mage.__('NIF/NIE not valid')

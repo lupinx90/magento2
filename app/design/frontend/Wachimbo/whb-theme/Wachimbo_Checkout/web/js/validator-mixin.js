@@ -60,14 +60,14 @@ define([
                     letra = letra.substring(numero, numero+1);
                     if (letra != letr) {
                         //alert('Dni erroneo, la letra del NIF no se corresponde');
-                        return false;
+                        return $.mage.isEmptyNoTrim(v) || false;
                     }else{
                         //alert('Dni correcto');
                         return true;
                     }
                 }else{
                     //alert('Dni erroneo, formato no válido');
-                    return false;
+                    return $.mage.isEmptyNoTrim(v) || false;
                 }
             },
             $.mage.__('NIF/NIE not valid')
